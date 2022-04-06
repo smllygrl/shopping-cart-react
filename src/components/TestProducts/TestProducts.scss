@@ -1,0 +1,32 @@
+.products {
+  border: 1px black solid;
+  margin: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  &__header {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__headerText {
+    margin: 15px;
+  }
+  &__title {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+  }
+  &__container {
+    margin: 15px;
+    width: 300px;
+    border: royalblue 1px solid;
+  }
+  &__image {
+    margin: 10px;
+    height: 25%;
+    width: 25%;
+  }
+  &__price {
+    margin: 10px;
+  }
+}

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./TestProducts.scss";
 
 const TestProducts = () => {
   const [items, setItems] = useState([]);
@@ -13,15 +14,16 @@ const TestProducts = () => {
   console.log(items);
 
   return (
-    <div className="allProducts__container">
-      <h2>These are all the products</h2>
-
+    <div className="products">
+      <header className="products__header">
+        <h1 className="products__headerText">These are all the products</h1>
+      </header>
       {items.map((item) => {
         return (
-          <div key={JSON.stringify(item.id)} className="product__container">
-            <p className="product__title">{JSON.stringify(item.title)}</p>
-            <img className="product__image" src={item.image} />
-            <p className="product__price">${item.price}</p>
+          <div key={JSON.stringify(item.id)} className="products__container">
+            <p className="products__title">{JSON.stringify(item.title)}</p>
+            <img className="products__image" src={item.image} />
+            <p className="products__price">${item.price}</p>
           </div>
         );
       })}
@@ -30,3 +32,7 @@ const TestProducts = () => {
 };
 
 export default TestProducts;
+
+// - Clean off " from beginning and end of title
+// - Clean data before placing in return (no login in return)
+// - Add bool somewhere: in cart? Y/N

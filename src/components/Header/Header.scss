@@ -1,0 +1,13 @@
+.header {
+  margin: 15px;
+  border: 1px solid black;
+  &__textcontainer {
+    display: flex;
+    justify-content: center;
+    border: 1px solid lime;
+  }
+  &__text {
+    margin: 10px;
+    color: purple;
+  }
+}

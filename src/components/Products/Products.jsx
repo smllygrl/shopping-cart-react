@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
-import "./TestProducts.scss";
+import { cleanProductsData } from "../../services/CleanData/CleanData";
+import AddToCartButton from "../AddToCartButton/AddToCartButton";
+import DetailsButton from "../DetailsButton";
+import "./Products.scss";
 
-const TestProducts = () => {
+const Products = () => {
   const [items, setItems] = useState([]);
 
   // returns 20 products on mount
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
-      .then((json) => setItems(json));
+      .then((json) => setItems(cleanProductsData(json)));
   }, []);
-
-  console.log(items);
 
   return (
     <div className="products">
@@ -20,10 +21,12 @@ const TestProducts = () => {
       </header>
       {items.map((item) => {
         return (
-          <div key={JSON.stringify(item.id)} className="products__container">
-            <p className="products__title">{JSON.stringify(item.title)}</p>
+          <div key={item.id} className="products__container">
+            <p className="products__title">{item.title}</p>
             <img className="products__image" src={item.image} />
             <p className="products__price">${item.price}</p>
+            <AddToCartButton />
+            <DetailsButton />
           </div>
         );
       })}
@@ -31,8 +34,6 @@ const TestProducts = () => {
   );
 };
 
-export default TestProducts;
+export default Products;
 
-// - Clean off " from beginning and end of title
-// - Clean data before placing in return (no login in return)
 // - Add bool somewhere: in cart? Y/N

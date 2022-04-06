@@ -1,0 +1,15 @@
+.addToCart {
+  border: 1px black solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__addOne {
+    margin: 2px;
+  }
+  &__quantity {
+    margin: 2px;
+  }
+  &__minusOne {
+    margin: 2px;
+  }
+}

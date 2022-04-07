@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { cleanProductsData } from "../../services/CleanData/CleanData";
-import AddToCartButton from "../AddToCartButton/AddToCartButton";
-import DetailsButton from "../DetailsButton";
+import AddToCartButton from "../Buttons/AddToCartButton/AddToCartButton";
+import DetailsButton from "../Buttons/DetailsButton";
 import "./Products.scss";
 
 const Products = () => {
@@ -26,7 +26,7 @@ const Products = () => {
             <img className="products__image" src={item.image} />
             <p className="products__price">${item.price}</p>
             <AddToCartButton />
-            <DetailsButton />
+            <DetailsButton id={item.id} />
           </div>
         );
       })}

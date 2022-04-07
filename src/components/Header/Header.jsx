@@ -1,13 +1,11 @@
 import "./Header.scss";
-import ShoppingCartButton from "../ShoppingCartButton";
-import DarkModeButton from "../DarkModeButton/DarkModeButton";
+import DarkModeButton from "../Buttons/DarkModeButton";
 
-const Header = () => {
+const Header = (headerTitle) => {
   return (
     <header className="header">
       <div className="header__textcontainer">
-        <h1 className="header__text">My Random Item Store</h1>
-        <ShoppingCartButton />
+        <h1 className="header__text">{headerTitle}</h1>
         <DarkModeButton />
       </div>
     </header>

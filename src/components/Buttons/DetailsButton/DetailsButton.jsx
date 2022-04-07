@@ -1,14 +1,15 @@
-const DetailsButton = (productID) => {
-  const getProduct = (productID) => {
-    console.log("Details button pressed" + productID);
-    console.log(`https://fakestoreapi.com/products/${productID}`);
-    fetch(`https://fakestoreapi.com/products/${productID}`)
-      .then((res) => res.json())
-      .then((json) => console.log(json));
-    // console.log(response);
+import { Link } from "react-router-dom";
+
+const DetailsButton = ({ id }) => {
+  const handleClick = () => {
+    console.log(`Detail button pressed on item with id: ${id}`);
   };
-  // on click go get id and go to https://fakestoreapi.com/products/{id}
-  return <button onClick={getProduct}>Details</button>;
+
+  return (
+    <button onClick={handleClick}>
+      <Link to="/product">DETAILS</Link>
+    </button>
+  );
 };
 
 export default DetailsButton;

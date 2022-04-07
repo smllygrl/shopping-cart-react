@@ -1,5 +1,11 @@
-const ShoppingCartPage = () => {
-  return <div>This is a shopping cart page</div>;
+import Header from "../../components/Header";
+
+const ShoppingCartPage = (itemsInCart) => {
+  return (
+    <div>
+      <Header headerTitle={"Shopping Cart"} />
+    </div>
+  );
 };
 
 export default ShoppingCartPage;

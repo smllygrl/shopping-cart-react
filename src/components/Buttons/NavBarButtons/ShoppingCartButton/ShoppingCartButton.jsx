@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import "../NavBarButton.scss";
 
 const ShoppingCartButton = () => {
   return (
-    <button>
+    <button className="navBar__cmpnt">
       <Link to="/cart">CART</Link>
     </button>
   );

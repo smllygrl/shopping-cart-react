@@ -26,7 +26,7 @@ const Products = () => {
             <img className="products__image" src={item.image} />
             <p className="products__price">${item.price}</p>
             <AddToCartButton />
-            <DetailsButton />
+            <DetailsButton id={item.id} />
           </div>
         );
       })}

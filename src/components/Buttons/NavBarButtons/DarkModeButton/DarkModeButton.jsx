@@ -1,9 +1,7 @@
+import "../NavBarButton.scss";
+
 const DarkModeButton = () => {
-  return (
-    <div>
-      <button>🌞 /🌙</button>
-    </div>
-  );
+  return <button className="navBar__cmpnt">🌞 /🌙</button>;
 };
 
 export default DarkModeButton;

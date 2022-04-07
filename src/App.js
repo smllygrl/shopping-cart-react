@@ -3,21 +3,24 @@ import ShoppingCartPage from "./pages/ShoppingCartPage";
 import NavBar from "./components/NavBar/NavBar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.scss";
-import DetailsButton from "./components/Buttons/DetailsButton";
-import Product from "./components/Product/Product";
+import ProductPage from "./pages/ProductPage/ProductPage";
+import { useState } from "react";
+// import ProductContext from "./services/contexts/ProductContext";
 
 const App = () => {
+  const [cartItems, setCartItems] = useState([]);
   return (
     <Router>
       <NavBar />
       <Routes>
-        <Route path="/" element={<HomePage />}>
-          {/* <HomePage /> */}
-        </Route>
-        <Route path="/cart" element={<ShoppingCartPage />}>
-          {/* <ShoppingCartPage /> */}
-        </Route>
-        <Route path="/product" element={<Product />}></Route>
+        <Route path="/" element={<HomePage />}></Route>
+        <Route
+          path="/cart"
+          element={<ShoppingCartPage itemsInCart={cartItems} />}
+        ></Route>
+        {/* <ProductContext.Provider> */}
+        <Route path="/product" element={<ProductPage />}></Route>
+        {/* </ProductContext.Provider> */}
       </Routes>
     </Router>
   );

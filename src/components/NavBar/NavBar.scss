@@ -1,0 +1,10 @@
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__buttons {
+    background: none;
+  }
+}
+
+// "navBar__cmpnt" = component class names

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ProductProvider from "../../services/contexts/ProductContext/ProductContext";
 import { cleanProductsData } from "../../services/CleanData/CleanData";
 import AddToCartButton from "../Buttons/AddToCartButton/AddToCartButton";
 import DetailsButton from "../Buttons/DetailsButton";
@@ -26,7 +27,9 @@ const Products = () => {
             <img className="products__image" src={item.image} />
             <p className="products__price">${item.price}</p>
             <AddToCartButton />
-            <DetailsButton id={item.id} />
+            <ProductProvider>
+              <DetailsButton id={item.id} />
+            </ProductProvider>
           </div>
         );
       })}

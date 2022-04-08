@@ -16,6 +16,7 @@ const Product = ({ id }) => {
 
   return (
     <div className="product">
+      <p>{id}</p>
       <div className="product__container">
         <div className="product__header">
           <div className="product__headerTitle">{item.title}</div>

@@ -3,11 +3,10 @@ import { createContext, useState } from "react";
 export const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
-  const [product, setProduct] = useState("");
+  const [productID, setProductID] = useState("");
 
-  console.log(`Coming from search context: ${product}`);
-
-  const productToRender = { product, setProduct };
+  // Below is the getter and setter of the context
+  const productToRender = { productID, setProductID };
 
   return (
     <ProductContext.Provider value={productToRender}>

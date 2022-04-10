@@ -1,15 +1,17 @@
 // must recieve ID of product from details button
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ProductContext } from "../../services/contexts/ProductContext/ProductContext";
 import AddToCartButton from "../Buttons/AddToCartButton/AddToCartButton";
 
 const Product = ({ id }) => {
   const [item, setItem] = useState([]);
+  const { productID } = useContext(ProductContext);
 
-  console.log(`https://fakestoreapi.com/products/${id}`);
+  console.log(`https://fakestoreapi.com/products/${productID}`);
 
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${id}`)
+    fetch(`https://fakestoreapi.com/products/${productID}`)
       .then((res) => res.json())
       .then((json) => setItem(json));
   }, []);

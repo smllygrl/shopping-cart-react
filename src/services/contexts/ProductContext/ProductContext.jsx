@@ -6,12 +6,10 @@ export const ProductProvider = ({ children }) => {
   const [productID, setProductID] = useState("");
 
   // Below is the getter and setter of the context
-  const productToRender = { productID, setProductID };
+  const data = { productID, setProductID };
 
   return (
-    <ProductContext.Provider value={productToRender}>
-      {children}
-    </ProductContext.Provider>
+    <ProductContext.Provider value={data}>{children}</ProductContext.Provider>
   );
 };
 

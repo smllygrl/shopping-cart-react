@@ -27,9 +27,8 @@ const Products = () => {
             <img className="products__image" src={item.image} />
             <p className="products__price">${item.price}</p>
             <AddToCartButton />
-            <ProductProvider>
-              <DetailsButton id={item.id} />
-            </ProductProvider>
+
+            <DetailsButton id={item.id} />
           </div>
         );
       })}

@@ -9,7 +9,7 @@ const DetailsButton = ({ id }) => {
   const { setProductID, productID } = useContext(ProductContext);
   const handleClick = async () => {
     console.log(id);
-    await setProductID({ id });
+    setProductID(id);
     console.log({ productID });
   };
 

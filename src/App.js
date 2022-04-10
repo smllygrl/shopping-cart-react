@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.scss";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import { useState } from "react";
-import ProductProvider from "./services/contexts/ProductContext";
+import ProductProvider from "./services/contexts/ProductContext/ProductContext";
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);

@@ -4,7 +4,7 @@ import { CartContext } from "../../../services/contexts/CartContext/CartContext"
 
 const AddToCartButton = ({ title, imgSRC, price }) => {
   const [quantity, setQuantity] = useState(0);
-  const { setCartItems } = useContext(CartContext);
+  const { cartItems, setCartItems } = useContext(CartContext);
 
   const addOne = () => {
     setQuantity(quantity + 1);
@@ -22,7 +22,6 @@ const AddToCartButton = ({ title, imgSRC, price }) => {
     if (quantity === 0) {
       console.log("Can only add quantity of 1 or more items to cart");
     } else {
-      console.log(`Title: ${title}, Image: ${imgSRC}`);
       const totalPrice = quantity * price;
       const itemToAdd = {
         title: title,
@@ -31,8 +30,10 @@ const AddToCartButton = ({ title, imgSRC, price }) => {
         itemPrice: price,
         totalPrice: totalPrice,
       };
-      console.log(itemToAdd);
+      console.log(itemToAdd); // This is an object
+      console.log(`Cart items before: ${cartItems}`); // This is empty
       setCartItems(itemToAdd);
+      console.log(`Cart items after: ${cartItems}`); // This is also empty
       setQuantity(0);
     }
   };

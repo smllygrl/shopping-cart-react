@@ -1,18 +1,16 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { CartContext } from "../../services/contexts/CartContext/CartContext";
 
 const ProductsInCart = () => {
-  const [items, setItems] = useState([]);
   const { cartItems } = useContext(CartContext);
 
-  useEffect(() => {
-    console.log(`Items in the cart: ${cartItems}`);
-    setItems(cartItems);
-  }, []);
+  // useEffect(() => {
+  //   console.log(`Items in the cart: ${cartItems}`);
+  // }, []);
 
   return (
     <>
-      {items.map((item) => {
+      {cartItems.map(({ item }) => {
         return (
           <div key={item.index} className="cartItem__container">
             <h3 className="cartItem__title">{item.title}</h3>

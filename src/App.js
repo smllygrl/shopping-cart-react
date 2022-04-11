@@ -4,25 +4,30 @@ import NavBar from "./components/NavBar/NavBar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.scss";
 import ProductPage from "./pages/ProductPage/ProductPage";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import ProductProvider from "./services/contexts/ProductContext/ProductContext";
+import {
+  CartContext,
+  CartProvider,
+} from "./services/contexts/CartContext/CartContext";
 
 const App = () => {
-  const [cartItems, setCartItems] = useState([]);
+  const { cartItems } = useContext(CartContext);
   return (
     <ProductProvider>
-      <Router>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<HomePage />}></Route>
-          <Route
-            path="/cart"
-            element={<ShoppingCartPage itemsInCart={cartItems} />}
-          ></Route>
-
-          <Route path="/product" element={<ProductPage />}></Route>
-        </Routes>
-      </Router>
+      <CartProvider>
+        <Router>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<HomePage />}></Route>
+            <Route
+              path="/cart"
+              element={<ShoppingCartPage itemsInCart={cartItems} />}
+            ></Route>
+            <Route path="/product" element={<ProductPage />}></Route>
+          </Routes>
+        </Router>
+      </CartProvider>
     </ProductProvider>
   );
 };

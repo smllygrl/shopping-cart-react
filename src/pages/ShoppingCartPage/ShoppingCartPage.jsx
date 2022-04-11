@@ -1,6 +1,6 @@
 import Header from "../../components/Header";
 
-const ShoppingCartPage = (itemsInCart) => {
+const ShoppingCartPage = () => {
   return (
     <div>
       <Header headerTitle={"Shopping Cart"} />

@@ -1,25 +1,10 @@
 import "./AddToCartButton.scss";
 import { useContext, useState } from "react";
 import { CartContext } from "../../../services/contexts/CartContext/CartContext";
-import ProductInCart from "../../ProductsInCart/ProductsInCart";
-import ProductForCart from "../../ProductForCart/ProductForCart";
 
 const AddToCartButton = ({ title, imgSRC, price }) => {
   const [quantity, setQuantity] = useState(0);
-  const { cartItems, setCartItems } = useContext(CartContext);
-
-  const checkIfInCart = () => {
-    // see if cart items include title, if yes, see if user wants to add the # to current quantity
-    let totalPrice = quantity * price;
-    setCartItems(
-      <ProductForCart
-        title={title}
-        imgSRC={imgSRC}
-        itemPrice={price}
-        totalPrice={totalPrice}
-      />
-    );
-  };
+  const { setCartItems } = useContext(CartContext);
 
   const addOne = () => {
     setQuantity(quantity + 1);
@@ -34,14 +19,22 @@ const AddToCartButton = ({ title, imgSRC, price }) => {
   };
 
   const confirmAdd = () => {
-    // ??
     if (quantity === 0) {
       console.log("Can only add quantity of 1 or more items to cart");
     } else {
-      console.log("Item added to cart");
+      console.log(`Title: ${title}, Image: ${imgSRC}`);
+      const totalPrice = quantity * price;
+      const itemToAdd = {
+        title: title,
+        imgSRC: imgSRC,
+        quantity: quantity,
+        itemPrice: price,
+        totalPrice: totalPrice,
+      };
+      console.log(itemToAdd);
+      setCartItems(itemToAdd);
       setQuantity(0);
     }
-    // item details and quantity must be passed to shopping cart
   };
 
   return (

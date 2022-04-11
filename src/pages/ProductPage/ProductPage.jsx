@@ -6,13 +6,8 @@ import { ProductContext } from "../../services/contexts/ProductContext/ProductCo
 const ProductPage = () => {
   const { productID } = useContext(ProductContext);
 
-  // useEffect(() => {
-
-  // }, []);
-
   return (
     <>
-      {console.log({ productID })}
       <Header headerTitle="Product Page" />
       <Product id={productID} />
     </>

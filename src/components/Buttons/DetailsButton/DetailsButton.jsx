@@ -6,11 +6,9 @@ import { ProductContext } from "../../../services/contexts/ProductContext/Produc
 // product page consumes context and passes it to product
 
 const DetailsButton = ({ id }) => {
-  const { setProductID, productID } = useContext(ProductContext);
+  const { setProductID } = useContext(ProductContext);
   const handleClick = async () => {
-    console.log(id);
     setProductID(id);
-    console.log({ productID });
   };
 
   return (

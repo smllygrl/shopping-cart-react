@@ -1,20 +1,29 @@
+import { useContext, useEffect, useState } from "react";
+import { CartContext } from "../../services/contexts/CartContext/CartContext";
+
 const ProductsInCart = () => {
-  // This is where cartItems is mapped through to be rendered
+  const [items, setItems] = useState([]);
+  const { cartItems } = useContext(CartContext);
 
-  // useEffect on render
-
-  // add edit quantity function (maybe just an add to cart button??)
+  useEffect(() => {
+    console.log(`Items in the cart: ${cartItems}`);
+    setItems(cartItems);
+  }, []);
 
   return (
-    <div className="cartItem__container">
-      <h3 className="cartItem__title">This is a cart item</h3>
-      <p className="cartItem__image"></p>
-      <p className="cartItem__quantity">{quantity}</p>
-      <p className="cartItem__price">{item.price} per unit</p>
-      <p className="cartItem__totalPrice">
-        {item.price}x{quantity}
-      </p>
-    </div>
+    <>
+      {items.map((item) => {
+        return (
+          <div key={item.index} className="cartItem__container">
+            <h3 className="cartItem__title">{item.title}</h3>
+            <img className="cartItem__image" src={item.imgSRC} />
+            <p className="cartItem__quantity">Quantity: {item.quantity}</p>
+            <p className="cartItem__price">Price: {item.price}</p>
+            <p className="cartItem__totalPrice">{item.totalPrice}</p>
+          </div>
+        );
+      })}
+    </>
   );
 };
 

@@ -1,12 +1,13 @@
-const ProductForCart = () => {
+const ProductForCart = ({ title, imgSRC, quantity, itemPrice, totalPrice }) => {
   const ProductObject = {
     title: title,
     imgSRC: imgSRC,
     quantity: quantity,
-    itemPrice: price,
+    itemPrice: itemPrice,
     totalPrice: totalPrice,
   };
-  return <div>This is a product for the cart</div>;
+
+  return <>{ProductObject}</>;
 };
 
 export default ProductForCart;

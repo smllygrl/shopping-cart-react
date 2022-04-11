@@ -8,13 +8,11 @@ const Product = ({ id }) => {
   const [item, setItem] = useState([]);
   const { productID } = useContext(ProductContext);
 
-  console.log(`https://fakestoreapi.com/products/${productID}`);
-
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${productID}`)
       .then((res) => res.json())
       .then((json) => setItem(json));
-  }, []);
+  }, [productID]);
 
   return (
     <div className="product">
@@ -25,12 +23,16 @@ const Product = ({ id }) => {
         </div>
         <div className="product__description">{item.description}</div>
         <div className="product__imageCont">
-          <img className="product__image" src={item.image} />
+          <img className="product__image" src={item.image} alt="" />
         </div>
         <div className="product__priceCont">
           <p className="product__price">${item.price}</p>
         </div>
-        <AddToCartButton />
+        <AddToCartButton
+          title={item.title}
+          imgSRC={item.image}
+          price={item.price}
+        />
       </div>
     </div>
   );

@@ -23,7 +23,11 @@ const Products = () => {
         return (
           <div key={item.id} className="products__container">
             <p className="products__title">{item.title}</p>
-            <img className="products__image" src={item.image} />
+            <img
+              className="products__image"
+              src={item.image}
+              alt={item.title}
+            />
             <p className="products__price">${item.price}</p>
             <AddToCartButton
               title={item.title}

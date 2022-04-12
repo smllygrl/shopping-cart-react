@@ -14,7 +14,11 @@ const ProductsInCart = () => {
         return (
           <div key={item.index} className="cartItem__container">
             <h3 className="cartItem__title">{item.title}</h3>
-            <img className="cartItem__image" src={item.imgSRC} />
+            <img
+              className="cartItem__image"
+              src={item.imgSRC}
+              alt={item.title}
+            />
             <p className="cartItem__quantity">Quantity: {item.quantity}</p>
             <p className="cartItem__price">Price: {item.price}</p>
             <p className="cartItem__totalPrice">{item.totalPrice}</p>

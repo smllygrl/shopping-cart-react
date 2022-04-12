@@ -1,6 +1,5 @@
 import { createContext, useState } from "react";
 
-// ternary = conditional operator
 // condition ? toDoIfTrue : toDoIfFalse
 
 // const itemToAdd = {
@@ -31,6 +30,7 @@ const updateTotalPriceOfItem = (itemInCart, theSameItem) => {
 };
 
 const addCartItem = (cartItems, prouctToAdd) => {
+  console.log(`Before addItemToCart: ${cartItems}`);
   if (doesExistInCart) {
     return cartItems.map((itemInCart) =>
       itemInCart.title === prouctToAdd.title
@@ -44,7 +44,7 @@ const addCartItem = (cartItems, prouctToAdd) => {
     // If the item exists in the cart, find that item, and add the quantity of the new addition to the original one
   } else {
     // Otherwise, add the product to cart items
-    return [...cartItems, { ...prouctToAdd }];
+    return cartItems.push(prouctToAdd);
   }
 };
 
@@ -53,7 +53,7 @@ export const CartContext = createContext({
 });
 
 export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(["hello"]);
 
   const addItemToCart = (prouctToAdd) => {
     setCartItems(addCartItem(cartItems, prouctToAdd));

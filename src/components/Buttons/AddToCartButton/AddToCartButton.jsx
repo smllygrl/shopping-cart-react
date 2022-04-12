@@ -2,9 +2,19 @@ import "./AddToCartButton.scss";
 import { useContext, useState } from "react";
 import { CartContext } from "../../../services/contexts/CartContext/CartContext";
 
+// const itemToAdd = {
+//   title: title,
+//   imgSRC: imgSRC,
+//   quantity: quantity,
+//   itemPrice: price,
+//   totalPrice: totalPrice,
+// };
+
 const AddToCartButton = ({ title, imgSRC, price }) => {
   const [quantity, setQuantity] = useState(0);
-  const { addItemToCart } = useContext(CartContext);
+  // const { title, imgSRC, quantityOf, itemPrice, totalPrice } = itemToAdd;
+  const { addItemToCart, cartItems } = useContext(CartContext);
+  const addProductToCart = () => addItemToCart();
 
   const addOne = () => {
     setQuantity(quantity + 1);
@@ -31,7 +41,8 @@ const AddToCartButton = ({ title, imgSRC, price }) => {
         totalPrice: totalPrice,
       };
       console.log(itemToAdd); // This is an object
-      addItemToCart(itemToAdd);
+      addProductToCart(itemToAdd);
+      console.log(`After addItemToCart: ${cartItems}`);
       setQuantity(0);
     }
   };

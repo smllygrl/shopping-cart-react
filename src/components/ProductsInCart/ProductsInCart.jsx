@@ -1,12 +1,12 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { CartContext } from "../../services/contexts/CartContext/CartContext";
 
 const ProductsInCart = () => {
   const { cartItems } = useContext(CartContext);
 
-  // useEffect(() => {
-  //   console.log(`Items in the cart: ${cartItems}`);
-  // }, []);
+  useEffect(() => {
+    console.log(`Items in the cart: ${cartItems}`);
+  }, []);
 
   return (
     <>

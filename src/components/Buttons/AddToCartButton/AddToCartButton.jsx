@@ -4,7 +4,7 @@ import { CartContext } from "../../../services/contexts/CartContext/CartContext"
 
 const AddToCartButton = ({ title, imgSRC, price }) => {
   const [quantity, setQuantity] = useState(0);
-  const { cartItems, setCartItems } = useContext(CartContext);
+  const { addItemToCart } = useContext(CartContext);
 
   const addOne = () => {
     setQuantity(quantity + 1);
@@ -31,9 +31,7 @@ const AddToCartButton = ({ title, imgSRC, price }) => {
         totalPrice: totalPrice,
       };
       console.log(itemToAdd); // This is an object
-      console.log(`Cart items before: ${cartItems}`); // This is empty
-      setCartItems(itemToAdd);
-      console.log(`Cart items after: ${cartItems}`); // This is also empty
+      addItemToCart(itemToAdd);
       setQuantity(0);
     }
   };
